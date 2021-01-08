@@ -3,7 +3,7 @@
 from tqdm import tqdm
 from pathlib import Path
 
-Path_of_database = Path("./data_base")
+Path_of_database = Path("./data_set")
 Path_of_query = str(Path("./") / "1.jpg")
 features_of_database = "feature_embeddings.h5"
 filenames_of_database = "data_set_names.csv"
@@ -99,6 +99,8 @@ rows = 5
 
 for i in range(1, columns*rows +1):
     img=plt.imread(str(Path_of_database / dataset_filenames.loc[results[i-1][0]][0]))
-    fig.add_subplot(rows, columns, i)
+    temp=fig.add_subplot(rows, columns, i)
+    temp.title.set_text(str(Path_of_database / dataset_filenames.loc[results[i-1][0]][0]))
     plt.imshow(img)
+plt.tight_layout()
 plt.show()
