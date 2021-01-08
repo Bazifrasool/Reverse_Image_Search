@@ -1,3 +1,4 @@
+#fix batch in h5
 #d_model.save("./resnet50.h5")
 from tqdm import tqdm
 from pathlib import Path
@@ -87,7 +88,7 @@ import matplotlib.pyplot as plt
 plt.figure()
 fig=plt.figure(figsize=(8, 8))
 columns = 1
-rows = 6
+rows = 5
 
 for i in range(1, columns*rows +1):
     img=plt.imread(str(Path_of_database / dataset_filenames.loc[results[i-1][0]][0]))
