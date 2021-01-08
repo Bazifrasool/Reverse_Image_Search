@@ -8,7 +8,7 @@ Path_of_query = str(Path("./") / "1.jpg")
 features_of_database = "feature_embeddings.h5"
 filenames_of_database = "data_set_names.csv"
 number_of_results =5
-batch_size = 1
+batch_size = 5
 threads=batch_size
 
 import keras
@@ -23,7 +23,7 @@ n_files=len(list_of_files)
 
 import h5py
 file = h5py.File(features_of_database, "w")    
-feature_emb = file.create_dataset("features", (len(list_of_files),2048), h5py.h5t.IEEE_F32LE,compression="lzf")
+feature_emb = file.create_dataset("features", (len(list_of_files)+batch_size,2048), h5py.h5t.IEEE_F32LE,compression="lzf")
 
 import cv2
 def pre_proc(img):
@@ -46,16 +46,19 @@ def parallel_read(begin,end):
     return np.array(batch_matr[begin:end+1],dtype='f')
 
 def read_data(beg,end):
-    if end>n_files:
+    if end>=n_files:
         end=n_files-1
+    if beg>=n_files:
+        return np.zeros(shape=(batch_size, 256, 256, 3),)
     batch_value=parallel_read(beg,end)
     return batch_value
 
-for index_i in tqdm(range(0,n_files//batch_size,batch_size)):
+for index_i in tqdm(range(0,(n_files+batch_size//batch_size),batch_size)):
     batch=read_data(index_i,index_i+batch_size-1)
     res=model.predict(batch)
     for i,each in enumerate(res):
         feature_emb[index_i+i,...]=each
+        #print(each.shape,index_i+i,batch.shape)
 file.close()
 
 def store_filename(l_o_f):
@@ -78,7 +81,11 @@ def calculate_distances(n):
     ld = h5py.File(features_of_database,"r")
     values = []
     for each in ld["features"]:
+        if(np.sum(each))<0.5:
+            values.append(-999)
+            break
         values.append((1-distance.cosine(each,vector)))
+    #print(len(values))
     from operator import itemgetter
     from heapq import nlargest
     return nlargest(n, enumerate(values), itemgetter(1))
