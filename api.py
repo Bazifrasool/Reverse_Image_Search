@@ -112,6 +112,7 @@ def query(n_results,query_path,gui=False):
     if(gui==False):
         for i in range(0,len(results)):
             print(str(Path_of_database / dataset_filenames.loc[results[i][0]][0]))
+            return str(Path_of_database / dataset_filenames.loc[results[i][0]][0])
     else:
         plt.figure()
         fig=plt.figure(figsize=(8, 8))
@@ -136,6 +137,6 @@ def query(n_results,query_path,gui=False):
 if __name__ == "__main__":
     feature_embeddings_generate("./database")
     print("done")
-    query(4,"./q2.jpg",True)
+    query(4,"./q2.jpg",False)
    
         
