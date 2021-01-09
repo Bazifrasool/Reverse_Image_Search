@@ -24,7 +24,7 @@ model.Trainable=False
 
 
 def pre_proc(img):
-    return cv2.resize(img,(256,256))
+    return cv2.resize(img,(224,224))
 batch_matr = [x for x in range(0,n_files)]
 
 
@@ -47,7 +47,7 @@ def read_data(beg,end):
     if end>=n_files:
         end=n_files-1
     if beg>=n_files:
-        return np.zeros(shape=(batch_size, 256, 256, 3),)
+        return np.zeros(shape=(batch_size, 224, 224, 3),)
     batch_value=parallel_read(beg,end)
     return batch_value
 
@@ -69,7 +69,7 @@ def feature_embeddings_generate(path):
      file = h5py.File(features_of_database, "w")    
      feature_emb = file.create_dataset("features", (len(list_of_files)+batch_size,2048), h5py.h5t.IEEE_F32LE,compression="lzf")
      batch_matr = [x for x in range(0,n_files)]
-     
+     print("*****************-- INGESTING DATA--******************************")
      for index_i in tqdm(range(0,(n_files+batch_size//batch_size),batch_size)):
          batch=read_data(index_i,index_i+batch_size-1)
          res=model.predict(batch)
@@ -134,8 +134,8 @@ def query(n_results,query_path,gui=False):
      
      
 if __name__ == "__main__":
-    #feature_embeddings_generate("./database")
+    feature_embeddings_generate("./database")
     print("done")
-    query(2,"./q2.jpg",True)
+    query(4,"./q2.jpg",True)
    
         
