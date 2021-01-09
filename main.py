@@ -3,16 +3,16 @@
 from tqdm import tqdm
 from pathlib import Path
 
-Path_of_database = Path("./data_set")
-Path_of_query = str(Path("./") / "1.jpg")
-features_of_database = "feature_embeddings.h5"
-filenames_of_database = "data_set_names.csv"
+Path_of_database = Path("./database")
+Path_of_query = str(Path("./") / "query.jpg")
+features_of_database = "./model_files/feature_embeddings.h5"
+filenames_of_database = "./model_files/dataset_names.csv"
 number_of_results =5
 batch_size = 5
 threads=batch_size
 
 import keras
-model=keras.models.load_model("./resnet50.h5")
+model=keras.models.load_model("./model_files/resnet50.h5")
 model.Trainable=False
 
 import os
@@ -95,7 +95,7 @@ import matplotlib.pyplot as plt
 plt.figure()
 fig=plt.figure(figsize=(8, 8))
 columns = 1
-rows = 5
+rows = number_of_results
 
 for i in range(1, columns*rows +1):
     img=plt.imread(str(Path_of_database / dataset_filenames.loc[results[i-1][0]][0]))
