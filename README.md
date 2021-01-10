@@ -47,6 +47,10 @@ Just Clone the repositories and run the follwing commands.
 
 Edit the init file to adjust dataset location and query picture and number of results
 
+<!-- FUTURE SUPPORT -->
+## Future Support
+
+Will add flask to make it server deployable.
 
 <!-- CONTACT -->
 ## Contact
