@@ -44,7 +44,7 @@ Just Clone the repositories and run the follwing commands.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-![Product Name Screen Shot]
+
 Edit the init file to adjust dataset location and query picture and number of results
 
 
