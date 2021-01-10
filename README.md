@@ -55,5 +55,5 @@ Will add flask to make it server deployable.
 <!-- CONTACT -->
 ## Contact
 
-Bazif Rasool - [BazifRasool@twitter_handle](https://twitter.com/twitter_handle) - baziflaherwal@gmail.com
+Bazif Rasool - [BazifRasool@twitter_handle](https://twitter.com/BazifRasool) - baziflaherwal@gmail.com
 
