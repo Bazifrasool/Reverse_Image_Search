@@ -7,12 +7,16 @@ RUN apt-get update \
   && pip3 --no-cache-dir install --upgrade pip \
   && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install -r requirements.txt
+RUN apt-get update
+
+RUN apt-get install -y libgl1-mesa-dev
 
 RUN mkdir /ris
 
 WORKDIR /ris
 
 COPY . ./
+
+RUN pip3 install -r requirements.txt
 
 ENTRYPOINT ["/bin/bash"]
