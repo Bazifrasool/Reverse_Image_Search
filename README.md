@@ -33,13 +33,13 @@ is a similar image lookup tool that is built on ResNet50 and uses h5py under the
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Just Clone the repositories and run the follwing commands. 
+Just Clone the repositories and run the following commands. 
 
-1.pip install -r requirements.txt
+1. pip install -r requirements.txt
 
-2.python3 init.py
+2. python3 init.py
 
-3.You can also run the ipynb in the Demofolder
+3. You can also run the ipynb in the Demofolder
 
 
 <!-- USAGE EXAMPLES -->
