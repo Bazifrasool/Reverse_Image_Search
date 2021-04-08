@@ -57,3 +57,7 @@ Will add flask to make it server deployable.
 
 Bazif Rasool - [BazifRasool@twitter_handle](https://twitter.com/BazifRasool) - baziflaherwal@gmail.com
 
+<!-- NOTES -->
+## Notes
+
+* Doesn't handle unicode filenames, support for them is incoming
