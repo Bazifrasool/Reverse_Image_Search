@@ -63,7 +63,9 @@ def store_filename(l_o_f):
 
 
 class ReverseImageSearch:
-    def __init__(self):
+    def __init__(self,ReverseImageSearchPath):
+        global REVERSE_IMAGE_SEARCH_PATH
+        REVERSE_IMAGE_SEARCH_PATH = ReverseImageSearchPath
         self.model=keras.models.load_model(str(Path(REVERSE_IMAGE_SEARCH_PATH)/"model_files"/ "resnet50.h5"))
         self.model.Trainable = False
         print("Done init")
@@ -122,10 +124,11 @@ class ReverseImageSearch:
         
         results=self.calculate_distances_class(number_of_results,query_path)
         #print(results)
+        lst_results = []
         for i in results:
-                print(str(Path_of_database / str(dataset_filenames.loc[i[0]][0])))
+                lst_results.append(str(dataset_filenames.loc[i[0]][0]))
                 #return str(Path_of_database / dataset_filenames.loc[results[i][0]][0])
-
+        return lst_results
 import sys
 if __name__ == "__main__":
     #Set folder path first

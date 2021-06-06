@@ -1,5 +1,6 @@
 environment/
 *.jpg
 .vscode/
-model_files/*
-!model_files/resnet50.h5
+uploads/*
+database/*
+__pycache__/

@@ -1,0 +1,26 @@
+.navbar-brand{
+    font-size: x-large ;
+    margin-left: 10px;
+}
+
+.nav-item{
+    font-size: large;
+    margin-right: 10px;
+}
+
+
+.central
+{   
+    font-size: xlarge;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    
+    
+}
+
+.num_class
+{
+    width: 10%;
+}
