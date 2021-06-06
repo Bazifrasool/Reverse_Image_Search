@@ -1,0 +1,5 @@
+environment/
+*.jpg
+.vscode/
+model_files/dataset_names.csv
+model_files/feature_embeddings.h5
