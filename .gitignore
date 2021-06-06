@@ -3,4 +3,6 @@ environment/
 .vscode/
 uploads/*
 database/*
+!uploads/info.txt
+!database/info.txt
 __pycache__/
