@@ -3,6 +3,7 @@ environment/
 .vscode/
 uploads/*
 database/*
-!uploads/info.txt
-!database/info.txt
+!uploads/0.jpg
+!database/0.jpg
 __pycache__/
+*.tar
