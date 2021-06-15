@@ -1,5 +1,7 @@
 FROM python:3.7
 
+ENV GENEMBED=TRUE
+
 RUN ls
 
 COPY . /usr/share/reverseimagesearch

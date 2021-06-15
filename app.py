@@ -4,6 +4,7 @@ import os
 from werkzeug.utils import secure_filename
 from model_api_class import ReverseImageSearch
 from pathlib import Path
+import os
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 MEDIA_FOLDER ="./database"
@@ -12,7 +13,7 @@ app.config["UPLOAD_FOLDER"]=UPLOAD_FOLDER
 app.config["MEDIA"]= MEDIA_FOLDER
 
 Bootstrap(app)
-
+gbGenerateEmbeddings = False
 #initialize model and generate
 
 # create object
@@ -25,7 +26,8 @@ ris = None
 def index():
     global ris
     ris=ReverseImageSearch(os.getcwd())
-    ris.generate_feature_embeddings("./database",1)
+    if(os.environ['GENEMBED']=="TRUE"):
+        ris.generate_feature_embeddings("./database",1)
     return render_template("base.html")
 
 @app.route("/<path:filename>")
@@ -65,4 +67,4 @@ def processing():
         return render_template("results.html",results=lst)
 
 if __name__=="__main__":
-    app.run(debug=True,port=7000,host="0.0.0.0")
+     app.run(debug=True,port=7000,host="0.0.0.0")
