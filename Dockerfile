@@ -8,12 +8,7 @@ COPY . /usr/share/reverseimagesearch
 
 WORKDIR /usr/share/reverseimagesearch
 
-RUN pip install -r requirements.txt
-
-RUN pip install tensorflow --upgrade --force-reinstall 
-
-RUN apt-get update ##[edited]
-RUN apt-get install ffmpeg libsm6 libxext6  -y
+RUN pip install -r requirements.txt && pip install tensorflow --upgrade --force-reinstall  &&apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 
 EXPOSE 7000
 
