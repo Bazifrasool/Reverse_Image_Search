@@ -137,5 +137,4 @@ if __name__ == "__main__":
     #print(sys.argv)
     rv=ReverseImageSearch()
     rv.generate_feature_embeddings(sys.argv[1],4)
-    rv.query(3,sys.argv[2],sys.argv[1])
-
+    print(rv.query(3,sys.argv[2],sys.argv[1]))
