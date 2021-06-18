@@ -64,9 +64,10 @@ Docker-> if you want to run a simple image without the fuss or setting up everyt
 
 ### Installation
 #### Docker
-1. Clone the repo
+1. Clone the repo and Change directory
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
+   cd Reverse_Image_Search/
    ```
 2. Build Docker Image
    ```sh
@@ -74,11 +75,11 @@ Docker-> if you want to run a simple image without the fuss or setting up everyt
    ```
 3. Run Docker Container
    ```sh
-   docker run -it -e GENEMBED=<TRUE or FALSE> -v path/to/database:usr/share/reverseimagesearch/database -v path/to/uploads_folder:usr/share/reverseimagesearch/uploads -p <port you want to use>:7000 --name reverseimagesearch_container <IMAGE-NAME-YOU-WANT>
+   docker run -it -e GENEMBED=<TRUE or FALSE> -v path/to/database:/usr/share/reverseimagesearch/database -v path/to/uploads_folder:/usr/share/reverseimagesearch/uploads -p <port you want to use>:7000 --name reverseimagesearch_container <IMAGE-NAME-YOU-WANT>
    ```
    An example would be<br>
    ```sh
-   docker run -it -e GENEMBED=TRUE -v /usr/databse:usr/share/reverseimagesearch/database -v /usr//uploads_folder:usr/share/reverseimagesearch/uploads -p 5000:7000 --name reverseimagesearch_container reverseimagesearch_image
+   docker run -it -e GENEMBED=TRUE -v $(pwd)/database:/usr/share/reverseimagesearch/database -v $(pwd)/uploads:/usr/share/reverseimagesearch/uploads -p 5000:7000 --name reverseimagesearch_container reverseimagesearch_image
    ```
 #### Direct API
  1. Clone the repo
