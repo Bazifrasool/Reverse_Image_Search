@@ -82,9 +82,10 @@ Docker-> if you want to run a simple image without the fuss or setting up everyt
    docker run -it -e GENEMBED=TRUE -v $(pwd)/database:/usr/share/reverseimagesearch/database -v $(pwd)/uploads:/usr/share/reverseimagesearch/uploads -p 5000:7000 --name reverseimagesearch_container reverseimagesearch_image
    ```
 #### Direct API
- 1. Clone the repo
+ 1. Clone the repo and Change directory
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
+   cd Reverse_Image_Search/
    ```
 2. install required python packages (install tensorflow gpu if you want fast performance)
    ```sh
